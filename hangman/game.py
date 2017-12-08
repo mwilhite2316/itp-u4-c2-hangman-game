@@ -61,11 +61,6 @@ def guess_letter(game, letter):
     if game['remaining_misses'] == 0 and len(game['previous_guesses']) == 1:
         raise GameFinishedException
     
-    if game['masked_word'] == game['answer_word']:
-        raise GameWonException
-    
-    if game['remaining_misses'] == 0:
-        raise GameLostException
         
     masked_word = game['masked_word']
     new_masked = _uncover_word(game['answer_word'], masked_word, letter)
